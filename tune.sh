@@ -30,13 +30,15 @@ Actions:
   -v, --version                           Display version
   -h, --help                              Display this help"
 
-DIR=~/.tune/
-STREAMS=${DIR}streams.cfg
-TMP=${DIR}tmpfile
+DIR=~/.tune
+STREAMS=${DIR}/streams.cfg
+TMP=${DIR}/tmpfile
 
 mkdir -p $DIR
-if [ ! -f $STREAMS ]; then
-	echo "twit=http://twit.am/listen" > $STREAMS; fi
+if [ ! -f $STREAMS ]
+then
+	echo "twit=http://twit.am/listen" > $STREAMS
+fi
 
 if [ $# == 0 ] || [ -z "$1" ]; then
 	echo "$HELP"; exit 1; fi
@@ -48,9 +50,12 @@ then
 			if [ $# != 1 ]; then
 				echo "Usage: $FILE --list|-l"; exit 1; fi
 			s=$(awk -F= '$1!="" {print $1}' $STREAMS)
-			if [ -z "$s" ]; then
-				echo "No streams. Use -a to add one"; exit 1; fi
-			echo "$s"
+			if [ -z "$s" ]
+			then
+				echo "No streams. Use -a to add one"
+			else
+				echo "$s"
+			fi
 			;;
 		--add|-a)
 			if [ $# != 3 ] || [ -z "$2" ] || [ -z "$3" ]; then
@@ -62,7 +67,7 @@ then
 			;;
 		--delete|-d)
 			if [ $# != 2 ] || [ -z "$2" ]; then
-				echo "Usage: $FILE --del-d [name]"; exit 1; fi 
+				echo "Usage: $FILE --del|-d [name]"; exit 1; fi 
 			awk -F= -v key="$2" '$1!=key {print}' $STREAMS > $TMP
 			mv $TMP $STREAMS
 			echo "Deleted: \"$2\""
@@ -90,7 +95,9 @@ fi
 
 url=$(awk -F= -v key="$1" '$1==key {print $2}' $STREAMS)
 
-if [ -z "$url" ]; then
-	echo "I have no record of a stream named \"$1\""; exit 1; fi
-
-mplayer $url
+if [ -z "$url" ]
+then
+	echo "I have no record of a stream named \"$1\""
+else
+	mplayer $url
+fi
