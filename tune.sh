@@ -18,7 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 NAME=tune.sh
-VERSION=1.1
+VERSION=1.2-dev
 
 FILE=$(basename "$0")
 HELP="Usage: $FILE [stream name]

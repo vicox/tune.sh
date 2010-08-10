@@ -1,5 +1,8 @@
 tune.sh
 
+version 1.2-dev (08/10/2010):
+	* delete all bugfix
+
 version 1.1 (08/10/2010):
 	* bugfixes
 	* option to delete all streams

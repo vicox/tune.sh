@@ -6,29 +6,35 @@ Installation:
   sudo apt-get /install mplayer
 
 - Download the latest version
-  wget http://github.com/downloads/vicox/tune.sh/tune.sh-1.0.tar.gz
+  wget http://github.com/downloads/vicox/tune.sh/tune.sh-1.1.tar.gz
 
 - Extract the archive
-  tar -xzvf tune.sh-1.0.tar.gz
+  tar -xzvf tune.sh-1.1.tar.gz
 
 - Copy “tune.sh” to a save place
-  mv tune.sh /my/save/place
+  mv tune.sh-1.1/tune.sh /my/save/place
 
 - Add an alias to your .bashrc
   echo “alias tune=/my/save/place/tune.sh” >> ~/.bashrc
 
 Usage:
-- Add a stream:
+- Add a stream
+  tune -a [name] [url]
+  Example:
   tune -a twit http://twit.am/listen
 
-- List all your streams:
+- List all your streams
   tune -l
 
-- Listen to a stream:
+- Listen to a stream
+  tune [name]
+  Example:
   tune twit
 
-- Delete a stream: 
+- Delete a stream
+  tune -d [name]
+  Example:
   tune -d twit
 
-- Delete all streams:
+- Delete all streams
   tune --delete-all
