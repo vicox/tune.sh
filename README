@@ -1,0 +1,34 @@
+tune.sh is a simple script for managing and listening to audio streams.
+It stores your favourite streams and plays them with mplayer.
+
+Installation:
+- Make sure you have mplayer installed
+  sudo apt-get /install mplayer
+
+- Download the latest version
+  wget http://github.com/downloads/vicox/tune.sh/tune.sh-1.0.tar.gz
+
+- Extract the archive
+  tar -xzvf tune.sh-1.0.tar.gz
+
+- Copy “tune.sh” to a save place
+  mv tune.sh /my/save/place
+
+- Add an alias to your .bashrc
+  echo “alias tune=/my/save/place/tune.sh” >> ~/.bashrc
+
+Usage:
+- Add a stream:
+  tune -a twit http://twit.am/listen
+
+- List all your streams:
+  tune -l
+
+- Listen to a stream:
+  tune twit
+
+- Delete a stream: 
+  tune -d twit
+
+- Delete all streams:
+  tune --delete-all
