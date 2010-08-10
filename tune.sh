@@ -70,7 +70,8 @@ then
 		--delete-all)
 			if [ $# != 1 ]; then
 				echo "Usage: $FILE --delete-all"; exit 1; fi
-			echo "" > $STREAMS
+			rm $STREAMS
+			touch $STREAMS
 			echo "You got it. All streams deleted"
 			;;
 		--version|-v)
